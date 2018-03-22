@@ -1,0 +1,47 @@
+Source Separation Project
+
+Run main.py to train the model. Use TensorBoard to view results.
+
+### Data Setup ###
+  # WSJ0
+    1) Download wsj0.tar.gz (https://catalog.ldc.upenn.edu/ldc93s6a)
+    2) tar -xf wsj0.tar.gz -C data/wsj0_sph/
+    2) Install sph2pipe (https://www.ldc.upenn.edu/language-resources/tools/sphere-conversion-tools)
+    3) python preprocess_wsj0.py (requires sph2pipe)
+
+  # LibriSpeech
+    1) Download test-clean.tar.gz and train-clean-100.tar.gz (http://www.openslr.org/12/)
+    2) tar -xf *clean*.tar.gz -C data/
+    3) python prepocess_libri.py
+
+  # RealTalkLibri (RTL)
+    1) Download rtl.tar.gz
+    2) tar -xf rtl.tar.gc -C data/
+
+### Code Overview ###
+# Hyperparameters
+  * hyperparameters - General Hyperparameters
+  * CNNparameters - CNN specific parameters
+  * RNNparameters - RNN specific parameters
+
+# Core
+  * main  - Construct the graph and train it
+  * graph - Build the neural network model
+  * train - Train the network
+
+# Data
+  * loader.py     - Make batches and prepare labels
+  * rtl_loader.py - Make batches and prepare labels for RTL data
+  * data_lib      - transform between waveform, spectrogram, and neural network
+                    input representations
+  * bss_eval      - Metric for calculating proxy_SDR
+  * mir_bss_eval  - Metric for calculating SDR
+
+# Model Results & Visualizations
+  * summaries - image, audio, scalar summary plots
+  * embedding_summary - Visualizing embeddings in PCA space (in TensorBoard)
+
+# Misc
+  * kmeans - kmeans implementation
+  * helper - various useful functions
+  * utilities - save hparams, track experiment number

@@ -1,0 +1,8 @@
+.DS_STORE
+__pycache__
+*.swp
+*.wav
+*.wv1
+*.wv2
+logs/*
+data/
