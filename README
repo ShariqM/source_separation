@@ -45,3 +45,9 @@ Run main.py to train the model. Use TensorBoard to view results.
   * kmeans - kmeans implementation
   * helper - various useful functions
   * utilities - save hparams, track experiment number
+  
+# Versions:
+Python: 3.6.1
+TensorFlow: 1.6.0-dev20180116
+CUDA: 9.0, V9.0.176
+cudNN:  8.0
