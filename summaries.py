@@ -185,8 +185,7 @@ def get_kmeans_mask(hparams, X_mixtures, X_sources, embeddings, threshold_mask):
 ############################
 def setup_eval_result_summary(hparams, X_mixtures, phases, kmeans_mask):
   # Put ops back in their original shape
-  X_mixtures   = helper.uncollapse_freq_into_time(hparams, X_mixtures)
-  kmeans_mask = helper.uncollapse_freq_into_time(hparams, kmeans_mask)
+  X_mixtures = helper.uncollapse_freq_into_time(hparams, X_mixtures)
 
   mixture, _ = (tf.py_func(data_lib.nn_representation_to_wav_spect,
         [X_mixtures, phases], [tf.float32, tf.float32]))
